@@ -8,11 +8,11 @@ using namespace std;
 int main (){
 	int op = 0; 
 	while (op != 7){
-		cout<<"1-agregar \n"<< "2-eliminar \n"<< "3-modificar \n"<< "4-buscar por nombre y naturaleza \n"<< "5-buscar por nivel \n" <<"6-buscar por tipo";
+		cout<<"1-agregar \n"<< "2-eliminar \n"<< "3-modificar \n"<< "4-buscar por nombre y naturaleza \n"<< "5-buscar por nivel \n" <<"6-buscar por tipo \n"<<"7-salir";
 		cin>>op;
 		string tipos []= {"Insecto","Dragon","Hielo","Pelea", "Fuego","Volador","Planta","Fantasma","Tierra","Electrico","Normal","Veneno","Psiquicos","Roca","Agua","Dark","Acero","Hada"};
 		if (op == 1){
-			string nombre;
+			string nombre,tipo, tipo2;
 			for (int i = 0; i < 18; i++){
 				cout<<i<<" "<<tipos[i]<<"\n";
 			}
