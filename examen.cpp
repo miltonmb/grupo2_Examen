@@ -1,4 +1,4 @@
-#include <pokemon.h>
+#include "pokemon.h"
 #include <iostream> 
 #include <string>
 #include <fstream>
@@ -12,7 +12,7 @@ int main (){
 		cin>>op;
 		if (op == 1){
 			string nombre,tipo, tipo2, naturaleza, legendario;
-			double nivel, hp, defensa, ataque_especial, defensa_especial;
+			double nivel, hp, defensa, ataque_especial, defensa_especial, rapidez;
 			int opcion=0;
 			cout<<"Ingrese el nombre";
 			cin>>nombre;
@@ -30,7 +30,7 @@ int main (){
 			cout<<"es legendario? s/n";
 			cin>>legendario;
 			cout<<"ingrese su nivel";
-			cint>>nivel;
+			cin>>nivel;
 			cout<<"ingrese el hp";
 			cin>>hp;
 			cout<<"Ingrese la defensa";
@@ -39,6 +39,9 @@ int main (){
 			cin>>ataque_especial;
 			cout<<"Ingrese la defensa especial";
 			cin>>defensa_especial;
+			cout<<"Ingrese la rapidez";
+			cin>>rapidez;
+			pokemon* pok = new pokemon(nombre, nivel, naturaleza, tipo, tipo2, hp, defensa, ataque_especial, defensa_especial, rapidez, legendario )
 		}
 		else if (op == 2){
 
