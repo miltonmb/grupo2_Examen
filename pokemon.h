@@ -9,6 +9,7 @@ class pokemon{
 	string tipo1;
 	string tipo2;
 	double hp;
+	double ataque;
 	double defensa;
 	double ataque_especial;
 	double defensa_especial;
@@ -16,7 +17,8 @@ class pokemon{
 	string legendario;
 
 	public:
-	pokemon(string,double,string,string,string,double,double,double,double,double,string);
+	pokemon(string,double,string,string,string,double,double,double,double,double,double,string);
+	~pokemon();
 	string getNombre(void);
 	void setNombre(string);
 	double getNivel(void);
@@ -29,6 +31,8 @@ class pokemon{
 	void setTipo2(string);	
 	double getHp(void);
 	void setHp(double);
+	double getAtaque(void);
+	void setAtaque(double);
 	double getDefensa(void);
 	void setDefensa(double);
 	double getAtaqueE(void);
@@ -39,5 +43,6 @@ class pokemon{
 	void setRapidez(double);
 	void setLegendario(string);
 	string getLegendario(void);
+	void toString(void);
 };
 

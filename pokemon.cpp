@@ -6,13 +6,14 @@
 #include <iostream>
 #include <iomanip>
 using namespace std;
-pokemon::pokemon(string n,double nv,string ntr,string t1,string t2,double h,double def,double atq_es,double def_es,double rpz, string lgndy){
+pokemon::pokemon(string n,double nv,string ntr,string t1,string t2,double h,double atc,double def,double atq_es,double def_es,double rpz, string lgndy){
 	nombre = n;
 	setNivel(nv);
 	naturaleza = ntr;
 	tipo1 = t1;
 	tipo2 = t2;
 	hp = h;
+	ataque = atc;
 	defensa = def;
 	ataque_especial = atq_es;
 	defensa_especial = def_es;
@@ -64,6 +65,12 @@ double pokemon::getHp(){
 void pokemon::setHp(double h){
 	hp = h;
 }
+double pokemon::getAtaque(){
+	return ataque;
+}
+void pokemon::setAtaque(double atc){
+	ataque = atc;
+}
 double pokemon::getDefensa(){
 	return defensa;
 }
@@ -93,5 +100,18 @@ void pokemon::setLegendario(string lgnd){
 }
 string pokemon::getLegendario(){
 	return legendario;
+}
+void pokemon::toString(){
+	cout <<"El Nombre es: "<<nombre<<endl;
+	cout <<"El nivel es: "<<nivel<<endl;
+	cout <<"La naturaleza es: "<<naturaleza<<endl;
+	cout <<"El tipo uno es: "<<tipo1<<endl;
+	cout <<"El tipo dos es:"<<tipo2<<endl;
+	cout <<"El HP es: "<<hp<<endl;
+	cout <<"La defensa es: "<<defensa<<endl;
+	cout <<"El ataque especial es: "<<ataque_especial<<endl;
+	cout <<"La defensa especial es: "<<defensa_especial<<endl;
+	cout <<"La rapidez es: "<<rapidez<<endl;
+	cout <<"Es legendario: "<<legendario<<endl;
 }
 
