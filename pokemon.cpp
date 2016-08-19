@@ -8,7 +8,7 @@
 using namespace std;
 pokemon::pokemon(string n,double nv,string ntr,string t1,string t2,double h,double def,double atq_es,double def_es,double rpz, string lgndy){
 	nombre = n;
-	nivel = nv;
+	setNivel(nv);
 	naturaleza = ntr;
 	tipo1 = t1;
 	tipo2 = t2;
@@ -27,6 +27,18 @@ void pokemon::setNombre(string n){
 }
 double pokemon::getNivel(){
 	return nivel;
+}
+void pokemon::setNivel(double nv){
+	int centinela = 0;
+	while(centinela == 0){
+		if (nv>0 && nv<=100){
+			nivel = nv;
+			centinela = 1;
+		}else{
+			cout << "Ingrese un nivel valido";
+			centinela = 0;
+		}	
+	}
 }
 string pokemon::getNaturaleza(){
 	return naturaleza;
