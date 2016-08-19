@@ -1,9 +1,8 @@
-#ifndef
-#define
-#include <string.h>
+
+#include <string>
 using namespace std;
 class pokemon{
-	public:
+	private:
 	string nombre;
 	double nivel;
 	string naturaleza;
@@ -16,7 +15,7 @@ class pokemon{
 	double rapidez;
 	string legendario;
 
-	private:
+	public:
 	pokemon(string,double,string,string,string,double,double,double,double,double,string);
 	string getNombre(void);
 	void setNombre(string);
@@ -25,7 +24,7 @@ class pokemon{
 	string getNaturaleza(void);
 	void setNaturaleza(string);
 	string getTipo1(void);
-	void setTipo2(string);
+	void setTipo1(string);
 	string getTipo2(void);
 	void setTipo2(string);	
 	double getHp(void);
@@ -41,5 +40,4 @@ class pokemon{
 	void setLegendario(string);
 	string getLegendario(void);
 };
-#
-endif
+

@@ -1,6 +1,6 @@
 #include "pokemon.h"
 #include <iostream>
-#include <string.h>
+#include <string>
 #include <fstream>
 #include <stdlib.h>
 #include <iostream>
@@ -17,7 +17,7 @@ pokemon::pokemon(string n,double nv,string ntr,string t1,string t2,double h,doub
 	ataque_especial = atq_es;
 	defensa_especial = def_es;
 	rapidez = rpz;
-	lengedario = lgndy;
+	legendario = lgndy;
 }
 string pokemon::getNombre(){
 	return nombre;
