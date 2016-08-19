@@ -9,8 +9,10 @@ string tipos []= {"Insecto","Dragon","Hielo","Pelea", "Fuego","Volador","Planta"
 int main (){
 	int op = 0; 
 	std::vector<pokemon*> lista;
-	while (op != 7){
-		cout<<"1-agregar \n"<< "2-eliminar \n"<< "3-modificar \n"<< "4-buscar por nombre y naturaleza \n"<< "5-buscar por nivel \n" <<"6-buscar por tipo \n"<<"7-salir";
+	while (op != 15){
+		cout<<"1-agregar \n"<< "2-eliminar \n"<< "3-modificar \n"<< "4-buscar por nombre y naturaleza \n"<< "5-buscar por nivel \n" <<"6-buscar por tipo \n"<<"7-ordenar \n";
+		cout<<"8- buscar por hp \n"<<"9- buscar por ataque \n"<<"10-buscar por naturaleza \n"<<"11-buscar por defensa \n"<<"12- buscar por ataque especial"<<"13- buscar por defensa especial \n";
+		cout<<"14- buscar por rapidez \n"<<"15- salir \n";
 		cin>>op;
 		if (op == 1){
 			string nombre,tipo, tipo2, naturaleza, legendario;
@@ -71,23 +73,22 @@ int main (){
 
 		}
 		else if (op == 4){
-			string naturaleza, nombre, naturaleza2, nombre2;;
+			string naturaleza, nombre, naturaleza2, nombre2;
 			pokemon* pok;
 			cout<<"Ingrese el nombre del pokemon: \n";
 			cin>>nombre;
-			cout<<"Ingrese la naturaleza: \n";
-			cin>>naturaleza;
+	
 			for (int i = 0; i < lista.size(); ++i)
 			{
 				pok = lista[i];
 				nombre2 = pok -> getNombre();
-				naturaleza2 = pok -> getNaturaleza();
-				if (nombre == nombre2 & naturaleza== naturaleza2)
+				if (nombre == nombre2 )
 				{
 					pok->toString();
 				}
 			}
 		}
+
 		else if (op == 5){
 			double nivel = 0;
 			double numero;
@@ -218,6 +219,123 @@ int main (){
 				}
 			}
 		}	
+		else if (op == 7){
+			for (int i = 0; i < lista.size(); ++i){
+				
+			}
+		}
+		else if (op == 8)
+		{
+			double nivel = 0;
+			double numero;
+			int opcion = 0;
+			pokemon* pok;
+			cout<<"buscar por: \n"<<"1-igual que \n"<<"2-diferente de \n "<<"3-menor que \n"<<"4- mayor que \n"<<"5-mayor o igual \n"<<"6- menor o igual \n";
+			cin>> opcion;
+			if (opcion == 1)
+			{
+				cout<<"Ingrese el hp: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getHp();
+					if (numero==nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 2)
+			{
+				cout<<"Ingrese el HP: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getHp();
+					if (numero!=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 3)
+			{
+				cout<<"Ingrese el HP: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getHp();
+					if (numero<nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 4)
+			{
+				cout<<"Ingrese el HP: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getHp();
+					if (numero>nivel)
+					{
+						pok->toString();	
+					}
+				}
+			}
+			if (opcion == 5)
+			{
+				cout<<"Ingrese el hp: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getHp();
+					if (numero>=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 6)
+			{
+				cout<<"Ingrese el hp: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getHp();
+					if (numero<=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+		}
+		else if (op == 9)
+		{
+			/* code */
+		}
+		else if (op == 10){
+			string naturaleza, nombre, naturaleza2, nombre2;;
+			cout<<"Ingrese la naturaleza: \n";
+			cin>>naturaleza;
+			pokemon* pok;
+				for (int i = 0; i < lista.size(); ++i)
+			{
+				pok = lista[i];
+				naturaleza2 = pok -> getNaturaleza();
+				if (naturaleza== naturaleza2)
+				{
+					pok->toString();
+				}
+			}
+		}
 
 	}
 	return 0;
