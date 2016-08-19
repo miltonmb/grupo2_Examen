@@ -3,10 +3,12 @@
 #include <string>
 #include <fstream>
 #include <stdlib.h>
+#include <vector>
 using namespace std;
 string tipos []= {"Insecto","Dragon","Hielo","Pelea", "Fuego","Volador","Planta","Fantasma","Tierra","Electrico","Normal","Veneno","Psiquicos","Roca","Agua","Dark","Acero","Hada"};
 int main (){
 	int op = 0; 
+	std::vector<pokemon> lista;
 	while (op != 7){
 		cout<<"1-agregar \n"<< "2-eliminar \n"<< "3-modificar \n"<< "4-buscar por nombre y naturaleza \n"<< "5-buscar por nivel \n" <<"6-buscar por tipo \n"<<"7-salir";
 		cin>>op;
@@ -41,10 +43,10 @@ int main (){
 			cin>>defensa_especial;
 			cout<<"Ingrese la rapidez";
 			cin>>rapidez;
-			pokemon* pok = new pokemon(nombre, nivel, naturaleza, tipo, tipo2, hp, defensa, ataque_especial, defensa_especial, rapidez, legendario )
+			pokemon* pok = new pokemon(nombre, nivel, naturaleza, tipo, tipo2, hp, defensa, ataque_especial, defensa_especial, rapidez, legendario );
 		}
 		else if (op == 2){
-
+			cout<<"Ingrese la posicion del pokemon";
 		}
 		else if (op == 3){
 
