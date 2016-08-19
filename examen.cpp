@@ -225,9 +225,7 @@ int main (){
 			}
 		}	
 		else if (op == 7){
-			for (int i = 0; i < lista.size(); ++i){
-				
-			}
+			
 		}
 		else if (op == 8)
 		{
