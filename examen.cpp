@@ -8,7 +8,7 @@ using namespace std;
 string tipos []= {"Insecto","Dragon","Hielo","Pelea", "Fuego","Volador","Planta","Fantasma","Tierra","Electrico","Normal","Veneno","Psiquicos","Roca","Agua","Dark","Acero","Hada"};
 int main (){
 	int op = 0; 
-	std::vector<pokemon> lista;
+	std::vector<pokemon*> lista;
 	while (op != 7){
 		cout<<"1-agregar \n"<< "2-eliminar \n"<< "3-modificar \n"<< "4-buscar por nombre y naturaleza \n"<< "5-buscar por nivel \n" <<"6-buscar por tipo \n"<<"7-salir";
 		cin>>op;
@@ -44,11 +44,27 @@ int main (){
 			cout<<"Ingrese la rapidez";
 			cin>>rapidez;
 			pokemon* pok = new pokemon(nombre, nivel, naturaleza, tipo, tipo2, hp, defensa, ataque_especial, defensa_especial, rapidez, legendario );
+			lista.push_back(pok);
 		}
 		else if (op == 2){
+			int posicion = 0;
 			cout<<"Ingrese la posicion del pokemon";
+			cin>>posicion;
+			lista.erase(lista.begin()+posicion);
 		}
 		else if (op == 3){
+			string nombre;
+			double nivel;
+			int posicion;
+			cout<<"Ingrese la posicion del pokemon";
+			cin>>posicion;
+			cout<<"Ingrese el nuevo nombre";
+			cin>>nombre;
+			cout<<"Ingrese el nuevo nivel";
+			cin>>nivel;
+			pokemon* pok = lista[posicion];
+			pok -> setNombre(nombre);
+			pok -> setNivel(nivel);
 
 		}
 		else if (op == 4){
