@@ -6,6 +6,7 @@
 #include <vector>
 using namespace std;
 string tipos []= {"Insecto","Dragon","Hielo","Pelea", "Fuego","Volador","Planta","Fantasma","Tierra","Electrico","Normal","Veneno","Psiquicos","Roca","Agua","Dark","Acero","Hada"};
+string nature []= {"Activa","Afable","Agitada","Alegre","Alocada","Amable","Audaz","Cauta","Dócil","Firme","Floja","Fuerte","Grosera","Huraña","Ingenua","Mansa","Miedosa","Modesta","Osada","Pícara","Plácida","Rara","Serena","Seria","Tímida"};
 int main (){
 	int op = 0; 
 	std::vector<pokemon*> lista;
@@ -28,7 +29,11 @@ int main (){
 			cin>>opcion;
 			tipo2 = tipos[opcion];
 			cout<<"Ingrese la naturaleza";
-			cin>>naturaleza;
+			for (int i = 0; i < 25; i++){
+				cout<<i<<" "<<nature[i]<<"\n";
+			}
+			cin >> opcion;
+			naturaleza = nature[opcion];
 			cout<<"es legendario? s/n";
 			cin>>legendario;
 			cout<<"ingrese su nivel";
