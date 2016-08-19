@@ -11,13 +11,11 @@ int main (){
 	int op = 0; 
 	std::vector<pokemon*> lista;
 	while (op != 15){
-<<<<<<< HEAD
-		cout<<"1-agregar \n"<< "2-eliminar \n"<< "3-modificar \n"<< "4-buscar por nombre  \n"<< "5-buscar por nivel \n" <<"6-buscar por tipo \n"<<"7-ordenar \n";
+			cout<<"1-agregar \n"<< "2-eliminar \n"<< "3-modificar \n"<< "4-buscar por nombre  \n"<< "5-buscar por nivel \n" <<"6-buscar por tipo \n"<<"7-ordenar \n";
 		cout<<"8- buscar por hp \n"<<"9- buscar por ataque \n"<<"10-buscar por naturaleza \n"<<"11-buscar por defensa \n"<<"12- buscar por ataque especial \n "<<"13- buscar por defensa especial \n";
-=======
 		cout<<"1-agregar \n"<< "2-eliminar \n"<< "3-modificar \n"<< "4-buscar por nombre y naturaleza \n"<< "5-buscar por nivel \n" <<"6-buscar por tipo \n"<<"7-ordenar \n";
 		cout<<"8- buscar por hp \n"<<"9- buscar por ataque \n"<<"10-buscar por naturaleza \n"<<"11-buscar por defensa \n"<<"12- buscar por ataque especial\n"<<"13- buscar por defensa especial \n";
->>>>>>> 5e916263032d55048ce97f6e57215313ce06cccb
+
 		cout<<"14- buscar por rapidez \n"<<"15- salir \n";
 		cin>>op;
 		if (op == 1){
@@ -221,13 +219,13 @@ int main (){
 			}
 			if (opcion==2)
 			{
-<<<<<<< HEAD
+
 				for (int i = 0; i < 18; i++){
 					cout<<i<<" "<<tipos[i]<<"\n";
 				}
-=======
+
 				cout << endl;
->>>>>>> 5e916263032d55048ce97f6e57215313ce06cccb
+
 				cout<<"Ingrese el tipo uno : \n";
 				cin>>posicion;
 				cout<<"Ingrese el tipo dos: \n";
@@ -350,7 +348,7 @@ int main (){
 		}
 		else if (op == 9)
 		{
-<<<<<<< HEAD
+
 			double nivel = 0;
 			double numero;
 			int opcion = 0;
@@ -441,8 +439,7 @@ int main (){
 					}
 				}
 			}
-=======
->>>>>>> 5e916263032d55048ce97f6e57215313ce06cccb
+
 		}
 
 		else if (op == 10){
