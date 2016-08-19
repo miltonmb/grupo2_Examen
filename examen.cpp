@@ -11,8 +11,8 @@ int main (){
 	int op = 0; 
 	std::vector<pokemon*> lista;
 	while (op != 15){
-		cout<<"1-agregar \n"<< "2-eliminar \n"<< "3-modificar \n"<< "4-buscar por nombre y naturaleza \n"<< "5-buscar por nivel \n" <<"6-buscar por tipo \n"<<"7-ordenar \n";
-		cout<<"8- buscar por hp \n"<<"9- buscar por ataque \n"<<"10-buscar por naturaleza \n"<<"11-buscar por defensa \n"<<"12- buscar por ataque especial"<<"13- buscar por defensa especial \n";
+		cout<<"1-agregar \n"<< "2-eliminar \n"<< "3-modificar \n"<< "4-buscar por nombre  \n"<< "5-buscar por nivel \n" <<"6-buscar por tipo \n"<<"7-ordenar \n";
+		cout<<"8- buscar por hp \n"<<"9- buscar por ataque \n"<<"10-buscar por naturaleza \n"<<"11-buscar por defensa \n"<<"12- buscar por ataque especial \n "<<"13- buscar por defensa especial \n";
 		cout<<"14- buscar por rapidez \n"<<"15- salir \n";
 		cin>>op;
 		if (op == 1){
@@ -54,6 +54,7 @@ int main (){
 			cin>>rapidez;
 			pokemon* pok = new pokemon(nombre, nivel, naturaleza, tipo, tipo2, hp, ataque, defensa, ataque_especial, defensa_especial, rapidez, legendario );
 			lista.push_back(pok);
+			pok -> toString();
 		}
 		else if (op == 2){
 			int posicion = 0;
@@ -74,7 +75,6 @@ int main (){
 			pokemon* pok = lista[posicion];
 			pok -> setNombre(nombre);
 			pok -> setNivel(nivel);
-			delete pok;
 
 		}
 		else if (op == 4){
@@ -188,14 +188,19 @@ int main (){
 		}
 		else if(op == 6){
 			string tipo, tipo2, tip, tip2;
+			int posicion=0,posicion2=0;
 			int opcion=0;
 			cout<<"1- buscar por un tipo: \n"<<"2- buscar por dos tipos \n";
 			cin>>opcion;
 			pokemon* pok;
 			if (opcion==1)
 			{
+				for (int i = 0; i < 18; i++){
+					cout<<i<<" "<<tipos[i]<<"\n";
+				}
 				cout<<"Ingrese el tipo: \n";
-				cin>>tipo;
+				cin>>posicion;
+				tipo = tipos[posicion];
 				for (int i = 0; i < lista.size(); ++i)
 				{
 					pok = lista[i];
@@ -208,10 +213,15 @@ int main (){
 			}
 			if (opcion==2)
 			{
+				for (int i = 0; i < 18; i++){
+					cout<<i<<" "<<tipos[i]<<"\n";
+				}
 				cout<<"Ingrese el tipo uno : \n";
-				cin>>tipo;
+				cin>>posicion;
 				cout<<"Ingrese el tipo dos: \n";
-				cin>>tipo2;
+				cin>>posicion2;
+				tipo = tipos[posicion];
+				tipo2 = tipos[posicion2];
 				for (int i = 0; i < lista.size(); ++i)
 				{
 					pok = lista[i];
@@ -324,8 +334,98 @@ int main (){
 		}
 		else if (op == 9)
 		{
-			/* code */
+			double nivel = 0;
+			double numero;
+			int opcion = 0;
+			pokemon* pok;
+			cout<<"buscar por: \n"<<"1-igual que \n"<<"2-diferente de \n "<<"3-menor que \n"<<"4- mayor que \n"<<"5-mayor o igual \n"<<"6- menor o igual \n";
+			cin>> opcion;
+			if (opcion == 1)
+			{
+				cout<<"Ingrese el ataque: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getAtaque();
+					if (numero==nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 2)
+			{
+				cout<<"Ingrese el ataque: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getAtaque();
+					if (numero!=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 3)
+			{
+				cout<<"Ingrese el ataque: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getAtaque();
+					if (numero<nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 4)
+			{
+				cout<<"Ingrese el ataque: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getAtaque();
+					if (numero>nivel)
+					{
+						pok->toString();	
+					}
+				}
+			}
+			if (opcion == 5)
+			{
+				cout<<"Ingrese el ataque: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getAtaque();
+					if (numero>=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 6)
+			{
+				cout<<"Ingrese el ataque: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getAtaque();
+					if (numero<=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
 		}
+
 		else if (op == 10){
 			string naturaleza, nombre, naturaleza2, nombre2;;
 			cout<<"Ingrese la naturaleza: \n";
@@ -341,7 +441,375 @@ int main (){
 				}
 			}
 		}
-
+		else if (op == 11)
+		{
+			double nivel = 0;
+			double numero;
+			int opcion = 0;
+			pokemon* pok;
+			cout<<"buscar por: \n"<<"1-igual que \n"<<"2-diferente de \n "<<"3-menor que \n"<<"4- mayor que \n"<<"5-mayor o igual \n"<<"6- menor o igual \n";
+			cin>> opcion;
+			if (opcion == 1)
+			{
+				cout<<"Ingrese la defensa: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getDefensa();
+					if (numero==nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 2)
+			{
+				cout<<"Ingrese la defensa: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getDefensa();
+					if (numero!=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 3)
+			{
+				cout<<"Ingrese la defensa: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getDefensa();
+					if (numero<nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 4)
+			{
+				cout<<"Ingrese el defensa: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getDefensa();
+					if (numero>nivel)
+					{
+						pok->toString();	
+					}
+				}
+			}
+			if (opcion == 5)
+			{
+				cout<<"Ingrese la defensa: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getDefensa();
+					if (numero>=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 6)
+			{
+				cout<<"Ingrese la defensa: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getDefensa();
+					if (numero<=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+		}
+		else if (op == 12){
+			double nivel = 0;
+			double numero;
+			int opcion = 0;
+			pokemon* pok;
+			cout<<"buscar por: \n"<<"1-igual que \n"<<"2-diferente de \n "<<"3-menor que \n"<<"4- mayor que \n"<<"5-mayor o igual \n"<<"6- menor o igual \n";
+			cin>> opcion;
+			if (opcion == 1)
+			{
+				cout<<"Ingrese el ataque especial: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getAtaqueE();
+					if (numero==nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 2)
+			{
+				cout<<"Ingrese el ataque especial: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getAtaqueE();
+					if (numero!=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 3)
+			{
+				cout<<"Ingrese el ataque especial: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getAtaqueE();
+					if (numero<nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 4)
+			{
+				cout<<"Ingrese el ataque especial: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getAtaqueE();
+					if (numero>nivel)
+					{
+						pok->toString();	
+					}
+				}
+			}
+			if (opcion == 5)
+			{
+				cout<<"Ingrese el ataque especial: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getAtaqueE();
+					if (numero>=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 6)
+			{
+				cout<<"Ingrese el ataque especial: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getAtaqueE();
+					if (numero<=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+		}
+		else if (op == 13){
+			double nivel = 0;
+			double numero;
+			int opcion = 0;
+			pokemon* pok;
+			cout<<"buscar por: \n"<<"1-igual que \n"<<"2-diferente de \n "<<"3-menor que \n"<<"4- mayor que \n"<<"5-mayor o igual \n"<<"6- menor o igual \n";
+			cin>> opcion;
+			if (opcion == 1)
+			{
+				cout<<"Ingrese la defensa especial: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getDefensaE();
+					if (numero==nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 2)
+			{
+				cout<<"Ingrese  la defensa especial: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getDefensaE();
+					if (numero!=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 3)
+			{
+				cout<<"Ingrese la defensa especial: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getDefensaE();
+					if (numero<nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 4)
+			{
+				cout<<"Ingrese la defensa especial: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getDefensaE();
+					if (numero>nivel)
+					{
+						pok->toString();	
+					}
+				}
+			}
+			if (opcion == 5)
+			{
+				cout<<"Ingrese el la defensa especial: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getDefensaE();
+					if (numero>=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 6)
+			{
+				cout<<"Ingrese la defensa especial: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getDefensaE();
+					if (numero<=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+		}
+		else if (op == 14){
+			double nivel = 0;
+			double numero;
+			int opcion = 0;
+			pokemon* pok;
+			cout<<"buscar por: \n"<<"1-igual que \n"<<"2-diferente de \n "<<"3-menor que \n"<<"4- mayor que \n"<<"5-mayor o igual \n"<<"6- menor o igual \n";
+			cin>> opcion;
+			if (opcion == 1)
+			{
+				cout<<"Ingrese la rapidez: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getRapidez();
+					if (numero==nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 2)
+			{
+				cout<<"Ingrese la rapidez: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getRapidez();
+					if (numero!=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 3)
+			{
+				cout<<"Ingrese la rapidez: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getRapidez();
+					if (numero<nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 4)
+			{
+				cout<<"Ingrese la rapidez: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getRapidez();
+					if (numero>nivel)
+					{
+						pok->toString();	
+					}
+				}
+			}
+			if (opcion == 5)
+			{
+				cout<<"Ingrese la rapidez : \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getRapidez();
+					if (numero>=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 6)
+			{
+				cout<<"Ingrese la rapidez: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getRapidez();
+					if (numero<=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+		}
 	}
 	return 0;
 }
