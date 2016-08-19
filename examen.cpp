@@ -14,7 +14,7 @@ int main (){
 		cin>>op;
 		if (op == 1){
 			string nombre,tipo, tipo2, naturaleza, legendario;
-			double nivel, hp, defensa, ataque_especial, defensa_especial, rapidez;
+			double nivel, hp, defensa, ataque_especial, defensa_especial, rapidez, ataque;
 			int opcion=0;
 			cout<<"Ingrese el nombre";
 			cin>>nombre;
@@ -35,6 +35,8 @@ int main (){
 			cin>>nivel;
 			cout<<"ingrese el hp";
 			cin>>hp;
+			cout<<"Ingrese el ataque";
+			cin>>ataque;
 			cout<<"Ingrese la defensa";
 			cin>>defensa;
 			cout<<"Ingrese el ataque especial";
@@ -43,7 +45,7 @@ int main (){
 			cin>>defensa_especial;
 			cout<<"Ingrese la rapidez";
 			cin>>rapidez;
-			pokemon* pok = new pokemon(nombre, nivel, naturaleza, tipo, tipo2, hp, defensa, ataque_especial, defensa_especial, rapidez, legendario );
+			pokemon* pok = new pokemon(nombre, nivel, naturaleza, tipo, tipo2, hp, ataque, defensa, ataque_especial, defensa_especial, rapidez, legendario );
 			lista.push_back(pok);
 		}
 		else if (op == 2){
@@ -65,17 +67,157 @@ int main (){
 			pokemon* pok = lista[posicion];
 			pok -> setNombre(nombre);
 			pok -> setNivel(nivel);
+			delete pok;
 
 		}
 		else if (op == 4){
-
+			string naturaleza, nombre, naturaleza2, nombre2;;
+			pokemon* pok;
+			cout<<"Ingrese el nombre del pokemon: \n";
+			cin>>nombre;
+			cout<<"Ingrese la naturaleza: \n";
+			cin>>naturaleza;
+			for (int i = 0; i < lista.size(); ++i)
+			{
+				pok = lista[i];
+				nombre2 = pok -> getNombre();
+				naturaleza2 = pok -> getNaturaleza();
+				if (nombre == nombre2 & naturaleza== naturaleza2)
+				{
+					pok->toString();
+				}
+			}
 		}
 		else if (op == 5){
-
+			double nivel = 0;
+			double numero;
+			int opcion = 0;
+			pokemon* pok;
+			cout<<"buscar por: \n"<<"1-igual que \n"<<"2-diferente de \n "<<"3-menor que \n"<<"4- mayor que \n"<<"5-mayor o igual \n"<<"6- menor o igual \n";
+			cin>> opcion;
+			if (opcion == 1)
+			{
+				cout<<"Ingrese el nivel: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getNivel();
+					if (numero==nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 2)
+			{
+				cout<<"Ingrese el nivel: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getNivel();
+					if (numero!=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 3)
+			{
+				cout<<"Ingrese el nivel: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getNivel();
+					if (numero<nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 4)
+			{
+				cout<<"Ingrese el nivel: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getNivel();
+					if (numero>nivel)
+					{
+						pok->toString();	
+					}
+				}
+			}
+			if (opcion == 5)
+			{
+				cout<<"Ingrese el nivel: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getNivel();
+					if (numero>=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion == 6)
+			{
+				cout<<"Ingrese el nivel: \n";
+				cin>>numero;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					nivel = pok -> getNivel();
+					if (numero<=nivel)
+					{
+						pok->toString();
+					}
+				}
+			}					
 		}
-		else if (op == 5){
-
-		}
+		else if(op == 6){
+			string tipo, tipo2, tip, tip2;
+			int opcion=0;
+			cout<<"1- buscar por un tipo: \n"<<"2- buscar por dos tipos \n";
+			cin>>opcion;
+			pokemon* pok;
+			if (opcion==1)
+			{
+				cout<<"Ingrese el tipo: \n";
+				cin>>tipo;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					tip = pok -> getTipo1();
+					if (tipo==tip)
+					{
+						pok->toString();
+					}
+				}
+			}
+			if (opcion==2)
+			{
+				cout<<"Ingrese el tipo uno : \n";
+				cin>>tipo;
+				cout<<"Ingrese el tipo dos: \n";
+				cin>>tipo2;
+				for (int i = 0; i < lista.size(); ++i)
+				{
+					pok = lista[i];
+					tip = pok -> getTipo1();
+					tip2 = pok -> getTipo2();
+					if (tipo== tip & tipo2 ==tip2)
+					{
+						pok->toString();
+					}
+				}
+			}
+		}	
 
 	}
 	return 0;
