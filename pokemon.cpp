@@ -20,6 +20,8 @@ pokemon::pokemon(string n,double nv,string ntr,string t1,string t2,double h,doub
 	rapidez = rpz;
 	legendario = lgndy;
 }
+pokemon::~pokemon(){
+}
 string pokemon::getNombre(){
 	return nombre;
 }
