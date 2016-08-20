@@ -10,14 +10,21 @@ string nature []= {"Activa","Afable","Agitada","Alegre","Alocada","Amable","Auda
 int main (){
 	int op = 0; 
 	std::vector<pokemon*> lista;
-	while (op != 15){
-			cout<<"1-agregar \n"<< "2-eliminar \n"<< "3-modificar \n"<< "4-buscar por nombre  \n"<< "5-buscar por nivel \n" <<"6-buscar por tipo \n"<<"7-ordenar \n";
+	
+	while (op != 16){
+			cout<<"1-agregar \n"<< "2-eliminar \n"<< "3-modificar \n"<< "4-buscar por nombre  \n"<< "5-buscar por nivel \n" <<"6-buscar por tipo \n"<<"7-ordenar por nivel \n";
 		cout<<"8- buscar por hp \n"<<"9- buscar por ataque \n"<<"10-buscar por naturaleza \n"<<"11-buscar por defensa \n"<<"12- buscar por ataque especial \n "<<"13- buscar por defensa especial \n";
-		cout<<"1-agregar \n"<< "2-eliminar \n"<< "3-modificar \n"<< "4-buscar por nombre y naturaleza \n"<< "5-buscar por nivel \n" <<"6-buscar por tipo \n"<<"7-ordenar \n";
-		cout<<"8- buscar por hp \n"<<"9- buscar por ataque \n"<<"10-buscar por naturaleza \n"<<"11-buscar por defensa \n"<<"12- buscar por ataque especial\n"<<"13- buscar por defensa especial \n";
-
-		cout<<"14- buscar por rapidez \n"<<"15- salir \n";
+		cout<<"14- buscar por rapidez \n"<<"15- ordenar por nombre \n"<<"16- salir";
 		cin>>op;
+		if(op == 69){
+			pokemon* pok;
+
+			for (int i = 0; i < lista.size(); ++i)
+			{
+				pok=lista[i];
+				cout<<pok->getNombre()<< pok->getNivel()<<" \n";
+			}
+		}
 		if (op == 1){
 			string nombre,tipo, tipo2, naturaleza, legendario;
 			double nivel, hp, defensa, ataque_especial, defensa_especial, rapidez, ataque;
@@ -245,8 +252,39 @@ int main (){
 			}
 		}	
 		else if (op == 7){
-			
+			pokemon* pok;
+			pokemon* temp;
+			pokemon* temp2;
+			double nivel=0, nivel2=0, t;
+			for (int i = 0; i < lista.size(); ++i)
+			{
+				
+				for (int j = 0; j < lista.size()-1; ++j)
+				{
+
+					pok = lista[j];
+					nivel = pok -> getNivel();
+					temp = lista[j+1];
+					nivel2 = temp->getNivel();
+					if (nivel>nivel2)
+					{
+						temp2 = lista[j];
+						lista[j]= lista[j+1];
+						lista[j+1]=temp2;
+						t = nivel;
+						nivel=nivel2;
+						nivel2=t;
+					}
+				}
+			}
+			pokemon* p;
+			for (int i = 0; i < lista.size(); ++i)
+			{
+				p=lista[i];
+				cout<<p->getNombre()<< p->getNivel()<<" \n";
+			}
 		}
+		
 		else if (op == 8)
 		{
 			double nivel = 0;
@@ -823,6 +861,33 @@ int main (){
 					if (numero<=nivel)
 					{
 						pok->toString();
+					}
+				}
+			}
+		}
+			else if (op == 15){
+			pokemon* pok;
+			pokemon* temp;
+			pokemon* temp2;
+			double nivel=0, nivel2=0, t;
+			for (int i = 0; i < lista.size(); ++i)
+			{
+				
+				for (int j = 0; j < lista.size()-1; ++j)
+				{
+
+					pok = lista[j];
+					nivel = pok -> getNivel();
+					temp = lista[j+1];
+					nivel2 = temp->getNivel();
+					if (nivel>nivel2)
+					{
+						temp2 = lista[j];
+						lista[j]= lista[j+1];
+						lista[j+1]=temp2;
+						t = nivel;
+						nivel=nivel2;
+						nivel2=t;
 					}
 				}
 			}
